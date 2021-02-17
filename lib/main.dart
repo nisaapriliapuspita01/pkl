@@ -1,70 +1,104 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  List<Color> colors = [
-    Colors.amberAccent,
-    Colors.blue,
-    Colors.black,
-    Colors.brown,
-    Colors.blueAccent,
-    Colors.brown,
-  ];
   @override
   Widget build(BuildContext context) {
-    final title = 'Nyobain ListView';
-
     return MaterialApp(
-      title: title,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: [
+        appBar: AppBar(
+          title: Center(child: Text('MyApp')),
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: <Widget>[
+                Container(
+                  height: 250,
+                  width: 160,
+                  margin: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(color: Colors.blueAccent),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Image.asset('assets/batagor.jpg'),
+                      Text('batagor'),
+                      Text('makanan khas bandung'),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 250,
+                  width: 160,
+                  margin: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(color: Colors.redAccent),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Image.asset('assets/batagor.jpg'),
+                      Text('batagor'),
+                      Text('makanan khas bandung'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20.0),
+              height: 300.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
                   Container(
-                    height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                          width: 200,
-                          color: Colors.grey,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.blueGrey,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.green,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.grey,
-                        )
-                      ],
-                    ),
+                    width: 120.0,
+                    height: 170.0,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.green,
                   ),
                   Container(
-                    height: 200,
-                    width: 300,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: colors.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            width: 400,
-                            height: 150,
-                            color: colors[index],
-                          );
-                        }),
-                  )
+                    width: 120.0,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.green[50],
+                  ),
+                  Container(
+                    width: 120.0,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.grey,
+                  ),
+                  Container(
+                    width: 120.0,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 120.0,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.lime,
+                  ),
                 ],
               ),
             ),
-          ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Image.asset("assets/batagor.jpg", width: 100),
+                Image.asset(
+                  "assets/batagor.jpg",
+                  width: 10,
+                ),
+                Image.asset(
+                  "assets/batagor.jpg",
+                  width: 10,
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
